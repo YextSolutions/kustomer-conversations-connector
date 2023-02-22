@@ -1,0 +1,8 @@
+{
+    "$id": "kustomerConversations",
+    "$schema": "https://schema.yext.com/config/platform/plugin/v1",
+    "globals": {
+      "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZjUzN2JjZjYxZWMzYjJkOGE5NWU5YiIsInVzZXIiOiI2M2Y1MzdiYjU1YmYxMWQ5YzZkMzAwYzIiLCJvcmciOiI2Mjk5MTIwOGU5ZjE3MTM1NzkxOTQ2MjYiLCJvcmdOYW1lIjoicGFyLXlleHQtYmVybmhhcmQiLCJ1c2VyVHlwZSI6Im1hY2hpbmUiLCJwb2QiOiJwcm9kMSIsInJvbGVzIjpbIm9yZy5wZXJtaXNzaW9uLm1lc3NhZ2UucmVhZCIsIm9yZy5wZXJtaXNzaW9uLmNvbnZlcnNhdGlvbi5yZWFkIl0sImF1ZCI6InVybjpjb25zdW1lciIsImlzcyI6InVybjphcGkiLCJzdWIiOiI2M2Y1MzdiYjU1YmYxMWQ5YzZkMzAwYzIifQ.I-FL3vexNsBHZmxDC7AF7p7FAERKkJJJQIFGlc4oIgo",
+      "domain": "https://par-yext-bernhard.kustomerapp.com"
+    }
+  }
