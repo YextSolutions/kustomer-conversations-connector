@@ -291,5 +291,14 @@
       "header": "Created Date - Formatted",
       "subfieldPath": []
     }
-  ]
+  ],
+  "scheduleConfig": {
+    "customSchedule": {
+      "timeZone": "America/New_York",
+      "startDate": "2023-02-27",
+      "startTime": "00:00",
+      "frequencyType": "MONTHLY"
+    },
+    "runMode": "COMPREHENSIVE"
+  }
 }
