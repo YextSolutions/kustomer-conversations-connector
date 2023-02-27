@@ -43,7 +43,8 @@ export const getCustomerEmail = async (customerId:string) => {
     };
 
     const response = (await fetch(customerEndpoint, requestOptions).then(response => response.json())).data;
-        return(response.attributes.emails[0].email)
+    console.log(response.attributes.emails[0].email)
+    return (response.attributes.emails[0].email)
 }
 
 export const getBrand = async (brandId:string) => {
@@ -58,5 +59,6 @@ export const getBrand = async (brandId:string) => {
     };
 
     const brand = (await fetch(brandEndpoint, requestOptions).then(response => response.json())).data.attributes.name;
+    console.log(brand)
     return(brand)
 }
