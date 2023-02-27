@@ -1,27 +1,26 @@
-# kustomer-conversation-connector
+# kustomer-conversation-and-messages-connectors
 
 # Product Description
-Pull your knowlegde base articles from Kustomer into Yext with the Kustomer Article Connector! You can use these articles to populate your support, workplace, or developer Answers experiences, in addition to other Yext products.
+Pull your Conversations and related Messages from Kustomer into Yext with the Kustomer Conversation and Messages Connectors! You can use your conversations and messages, which are both valauble sources of truth, to populate your support, workplace, or developer Answers experiences, in addition to other Yext products. 
 
 # Requirements
 To use this template, you'll need the following before install:
 
-- Kustomer Knowledge Base Domain
-- Kustomer API Key
+- Kustomer API Key set to the **org.permission** role.
 
 # Installation Instructions
-If you are an existing Yext customer, you can install the Kustomer Article Connector here <https://www.yext.com/s/me/apps/[REPLACEME]>
+If you are an existing Yext customer, you can install the Connectorse here <https://www.yext.com/s/me/apps/[REPLACEME]>
 
-If you are currently using a Yext sandbox account, you can install the Kustomer Article Connector here <https://sandbox.yext.com/s/me/apps/[REPLACEME]>.
+If you are currently using a Yext sandbox account, you can install the Connectors here <https://sandbox.yext.com/s/me/apps/[REPLACEME]>.
 
 If you are not an existing customer, but interested in learning more, try out a free trial here for a production account, or sign up for Hitchhikers and get started with a sandbox account, here <https://hitchhikers.yext.com/>.
 
 ## Step-by-Step Instructions:
 1. Log in to your Yext account
 2. Navigate to the **Apps > Directory** tab in the platform (or use the link provided above)
-3. Search for the **Kustomer Article Connector** app and click **Install**
+3. Search for the **Kustomer Conversation and Messages** app and click **Install**
 4. Proceed through the installation flow to give Yext access to add the connector to your account
-5. Input your **Kustomer Domain** and click **Authorize**
-6. Finalize the configuration by confirming your **Kustomer Domain and API Key** 
+5. Input your **Kustomer API Key** and click **Authorize**
+6. Run the Kustomer Conversations Connector *BEFORE* you run the Kustomer Messages Connector. Make sure the Conversations Connector has fully completed running beofre you run the Courses Connector.
 
-Once the connector runs, you'll be able to see all your newly created Kustomer Article entities in the Knowledge Graph!
+After running both connectors, you'll be able to see all your newly created Kustomer Conversations and Messages entities in the Knowledge Graph!

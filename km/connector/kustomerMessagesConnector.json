@@ -1,0 +1,138 @@
+{
+  "$id": "kustomer_kustomerMessagesConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v3",
+  "displayName": "Kustomer Messages Connector",
+  "entityType": "kustomer_kustomerMessages",
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://api.kustomerapp.com/v1/messages",
+        "authentication": {
+          "apiKey": {
+            "key": "Authorization",
+            "value": "Bearer ${{apiKey}}",
+            "setAsHeader": true
+          }
+        },
+        "paginationControl": {
+          "cursorPagination": {
+            "cursor": "links.next",
+            "cursorType": "RELATIVE_URL",
+            "detectCursorInHeader": false
+          }
+        },
+        "headers": {},
+        "queryParams": {
+          "Content-Type": "application/json"
+        },
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "data"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "Entity ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "Name",
+        "path": "attributes.preview"
+      },
+      {
+        "type": "JSON",
+        "header": "Conversation Subject",
+        "path": "attributes.meta.subject"
+      },
+      {
+        "type": "JSON",
+        "header": "Message Text",
+        "path": "attributes.preview"
+      },
+      {
+        "type": "JSON",
+        "header": "Message Channel",
+        "path": "attributes.channel"
+      },
+      {
+        "type": "JSON",
+        "header": "Message Sender Contact",
+        "path": "attributes.meta.from"
+      },
+      {
+        "type": "JSON",
+        "header": "Related Conversation",
+        "path": "relationships.conversation.data.id"
+      },
+      {
+        "type": "JSON",
+        "header": "Sent At",
+        "path": "attributes.sentAt"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "extractText": {
+        "inputHeader": "Sent At",
+        "newColumnHeader": "Sent At - Formatted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "entityId",
+      "header": "Entity ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_relatedConversation",
+      "header": "Related Conversation",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_sentAt",
+      "header": "Sent At - Formatted",
+      "subfieldPath": []
+    },
+    {
+      "field": "richTextDescription",
+      "header": "Message Text",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_messageSenderContact",
+      "header": "Message Sender Contact",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_messageChannel",
+      "header": "Message Channel",
+      "subfieldPath": []
+    },
+    {
+      "field": "name",
+      "header": "Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_conversationSubject",
+      "header": "Conversation Subject",
+      "subfieldPath": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "kustomer_noteCount",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Note Count",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "decimalType": {}
+  },
+  "typeId": "decimal"
+}

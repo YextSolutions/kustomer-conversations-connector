@@ -1,0 +1,19 @@
+{
+  "$id": "kustomer_relatedConversation",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Related Conversation",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "listType": {
+      "typeId": "entityReference",
+      "type": {
+        "entityReferenceType": {
+          "relatedFieldId": "kustomer_relatedMessages",
+          "type": "TWO_WAY"
+        }
+      }
+    }
+  },
+  "typeId": "list"
+}

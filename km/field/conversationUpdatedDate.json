@@ -1,0 +1,11 @@
+{
+  "$id": "kustomer_conversationUpdatedDate",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Conversation Updated Date",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "dateType": {}
+  },
+  "typeId": "date"
+}

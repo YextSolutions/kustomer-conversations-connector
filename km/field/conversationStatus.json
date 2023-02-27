@@ -1,0 +1,14 @@
+{
+  "$id": "kustomer_conversationStatus",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Conversation Status",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "stringType": {
+      "stereotype": "SIMPLE",
+      "maxLength": 100000
+    }
+  },
+  "typeId": "string"
+}

@@ -1,0 +1,26 @@
+{
+  "$id": "kustomer_conversations.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "Conversations-default",
+  "entityType": "kustomer_conversations",
+  "fields": [
+    "brand",
+    "kustomer_assignedUser",
+    "kustomer_assignedUserEmail",
+    "kustomer_conversationChannel",
+    "kustomer_conversationCreatedDate",
+    "kustomer_conversationPriority",
+    "kustomer_conversationStatus",
+    "kustomer_conversationUpdatedDate",
+    "kustomer_customerEmail",
+    "kustomer_customerName",
+    "kustomer_isClosed",
+    "kustomer_lastActivityAt",
+    "kustomer_messageCount",
+    "kustomer_noteCount",
+    "kustomer_relatedMessages",
+    "kustomer_satisfaction",
+    "landingPageUrl"
+  ],
+  "required": []
+}

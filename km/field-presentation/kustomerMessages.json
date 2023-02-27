@@ -1,0 +1,66 @@
+{
+  "$id": "ce_kustomerMessages",
+  "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
+  "entityType": "kustomer_kustomerMessages",
+  "displayName": "Kustomer Messages",
+  "presentationEntries": [
+    {
+      "displayName": "Content",
+      "entryType": "DIVIDER"
+    },
+    {
+      "displayName": "Core Information",
+      "entryType": "SECTION",
+      "fields": [
+        {
+          "id": "name",
+          "visibleOnAdd": true
+        },
+        {
+          "id": "entityId",
+          "visibleOnAdd": true
+        },
+        {
+          "id": "richTextDescription"
+        },
+        {
+          "id": "kustomer_conversationSubject"
+        }
+      ]
+    },
+    {
+      "displayName": "Other",
+      "entryType": "DIVIDER"
+    },
+    {
+      "displayName": "Internal Use Only",
+      "entryType": "SECTION",
+      "fields": [
+        {
+          "id": "folder"
+        },
+        {
+          "id": "labels"
+        }
+      ]
+    },
+    {
+      "displayName": "Message Details",
+      "entryType": "SECTION",
+      "fields": [
+        {
+          "id": "kustomer_relatedConversation"
+        },
+        {
+          "id": "kustomer_sentAt"
+        },
+        {
+          "id": "kustomer_messageChannel"
+        },
+        {
+          "id": "kustomer_messageSenderContact"
+        }
+      ]
+    }
+  ]
+}

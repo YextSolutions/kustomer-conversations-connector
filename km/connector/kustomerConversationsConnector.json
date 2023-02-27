@@ -1,0 +1,295 @@
+{
+  "$id": "kustomerConversationsConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v3",
+  "displayName": "Kustomer Conversations Connector",
+  "entityType": "kustomer_conversations",
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://api.kustomerapp.com/v1/conversations",
+        "authentication": {
+          "apiKey": {
+            "key": "Authorization",
+            "value": "Bearer ${{apiKey}}",
+            "setAsHeader": true
+          }
+        },
+        "paginationControl": {
+          "cursorPagination": {
+            "cursor": "links.next",
+            "cursorType": "RELATIVE_URL",
+            "detectCursorInHeader": false
+          }
+        },
+        "headers": {},
+        "queryParams": {
+          "Content-Type": "application/json"
+        },
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "data"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "Entity ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "Name",
+        "path": "attributes.name"
+      },
+      {
+        "type": "JSON",
+        "header": "Conversation Priority",
+        "path": "attributes.priority"
+      },
+      {
+        "type": "JSON",
+        "header": "Conversation Channels",
+        "path": "attributes.channels"
+      },
+      {
+        "type": "JSON",
+        "header": "Conversation Status",
+        "path": "attributes.status"
+      },
+      {
+        "type": "JSON",
+        "header": "Message Count",
+        "path": "attributes.messageCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Note Count",
+        "path": "attributes.noteCount"
+      },
+      {
+        "type": "JSON",
+        "header": "Satisfaction",
+        "path": "attributes.satisfaction"
+      },
+      {
+        "type": "JSON",
+        "header": "Is Closed",
+        "path": "attributes.ended"
+      },
+      {
+        "type": "JSON",
+        "header": "Brand",
+        "path": "relationships.brand.data.id"
+      },
+      {
+        "type": "JSON",
+        "header": "Customer Name",
+        "path": "relationships.customer.data.id"
+      },
+      {
+        "type": "JSON",
+        "header": "Customer Email",
+        "path": "relationships.customer.data.id"
+      },
+      {
+        "type": "JSON",
+        "header": "Date Created",
+        "path": "attributes.createdAt"
+      },
+      {
+        "type": "JSON",
+        "header": "Date Updated",
+        "path": "attributes.updatedAt"
+      },
+      {
+        "type": "JSON",
+        "header": "Last Activity At",
+        "path": "attributes.lastActivityAt"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Customer Name",
+          "Entity ID"
+        ],
+        "newColumnHeader": "Landing Page URL",
+        "delimiter": "/event/"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Landing Page URL"
+          ]
+        },
+        "plugin": "kustomerConversations",
+        "function": "createConversationUrl"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Brand"
+          ]
+        },
+        "plugin": "kustomerConversations",
+        "function": "getBrand"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Customer Name"
+          ]
+        },
+        "plugin": "kustomerConversations",
+        "function": "getCustomerName"
+      }
+    },
+    {
+      "function": {
+        "inputHeaders": {
+          "headers": [
+            "Customer Email"
+          ]
+        },
+        "plugin": "kustomerConversations",
+        "function": "getCustomerEmail"
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Date Updated",
+        "newColumnHeader": "Date Updated - Formatted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Date Created",
+        "newColumnHeader": "Created Date - Formatted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Last Activity At",
+        "newColumnHeader": "Last Activity At - Formatted",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "kustomer_conversationPriority",
+      "header": "Conversation Priority",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_lastActivityAt",
+      "header": "Last Activity At - Formatted",
+      "subfieldPath": []
+    },
+    {
+      "field": "landingPageUrl",
+      "header": "Landing Page URL",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_messageCount",
+      "header": "Message Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_satisfaction",
+      "header": "Satisfaction",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_noteCount",
+      "header": "Note Count",
+      "subfieldPath": []
+    },
+    {
+      "field": "name",
+      "header": "Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_isClosed",
+      "header": "Is Closed",
+      "subfieldPath": []
+    },
+    {
+      "field": "brand",
+      "header": "Brand",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_conversationChannel",
+      "header": "Conversation Channels",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_customerEmail",
+      "header": "Customer Email",
+      "subfieldPath": []
+    },
+    {
+      "field": "entityId",
+      "header": "Entity ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_conversationStatus",
+      "header": "Conversation Status",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_conversationUpdatedDate",
+      "header": "Date Updated - Formatted",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_customerName",
+      "header": "Customer Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "kustomer_conversationCreatedDate",
+      "header": "Created Date - Formatted",
+      "subfieldPath": []
+    }
+  ]
+}
