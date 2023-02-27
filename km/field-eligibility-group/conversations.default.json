@@ -2,11 +2,9 @@
   "$id": "kustomer_conversations.default",
   "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
   "name": "Conversations-default",
-  "entityType": "kustomer_conversations",
+  "entityType": "kustomer_kustomerConversations",
   "fields": [
     "brand",
-    "kustomer_assignedUser",
-    "kustomer_assignedUserEmail",
     "kustomer_conversationChannel",
     "kustomer_conversationCreatedDate",
     "kustomer_conversationPriority",

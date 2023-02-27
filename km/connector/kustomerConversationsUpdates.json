@@ -2,7 +2,7 @@
   "$id": "kustomer_kustomerConversationsUpdates",
   "$schema": "https://schema.yext.com/config/km/connector/v3",
   "displayName": "Kustomer Conversations Updates",
-  "entityType": "kustomer_conversations",
+  "entityType": "kustomer_kustomerConversations",
   "source": {
     "sourceConfig": {
       "apiPushConfig": {
