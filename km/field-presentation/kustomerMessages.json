@@ -1,5 +1,5 @@
 {
-  "$id": "ce_kustomerMessages",
+  "$id": "kustomer_kustomerMessages",
   "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
   "entityType": "kustomer_kustomerMessages",
   "displayName": "Kustomer Messages",

@@ -1,7 +1,7 @@
-# kustomer-conversation-and-messages-connectors
+# kustomer-conversation-content-connectors
 
 # Product Description
-Pull your Conversations and related Messages from Kustomer into Yext with the Kustomer Conversation and Messages Connectors! You can use your conversations and messages, which are both valauble sources of truth, to populate your support, workplace, or developer Answers experiences, in addition to other Yext products. 
+Pull your Conversations and their related Messages from Kustomer into Yext with the Kustomer Conversation Content Connector! You can use your conversations and messages, which are both valuable sources of truth, to populate your support, workplace, or developer Answers experiences, in addition to other Yext products. 
 
 # Requirements
 To use this template, you'll need the following before install:
@@ -21,6 +21,6 @@ If you are not an existing customer, but interested in learning more, try out a 
 3. Search for the **Kustomer Conversation and Messages** app and click **Install**
 4. Proceed through the installation flow to give Yext access to add the connector to your account
 5. Input your **Kustomer API Key** and click **Authorize**
-6. Run the Kustomer Conversations Connector *BEFORE* you run the Kustomer Messages Connector. Make sure the Conversations Connector has fully completed running beofre you run the Courses Connector.
+6. Run the Kustomer Conversations Connector *BEFORE* you run the Kustomer Messages Connector. Make sure the Conversations Connector has fully completed running before you run the Courses Connector.
 
 After running both connectors, you'll be able to see all your newly created Kustomer Conversations and Messages entities in the Knowledge Graph!

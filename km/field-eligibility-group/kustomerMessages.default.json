@@ -1,5 +1,5 @@
 {
-  "$id": "ce_kustomerMessages.default",
+  "$id": "kustomer_kustomerMessages.default",
   "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
   "name": "Kustomer Messages-default",
   "entityType": "kustomer_kustomerMessages",
