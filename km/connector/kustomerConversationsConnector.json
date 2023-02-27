@@ -1,5 +1,5 @@
 {
-  "$id": "kustomerConversationsConnector",
+  "$id": "kustomer_kustomerConversationsConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v3",
   "displayName": "Kustomer Conversations Connector",
   "entityType": "kustomer_kustomerConversations",
