@@ -4,14 +4,14 @@
 Pull your Conversations and their related Messages from Kustomer into Yext with the Kustomer Conversation Content Connector! You can use your conversations and messages, which are both valuable sources of truth, to populate your support, workplace, or developer Answers experiences, in addition to other Yext products. 
 
 # Requirements
-To use this template, you'll need the following before install:
+To use this app, you'll need the following before install:
 
 - Kustomer API Key set to the **org.permission** role.
 
 # Installation Instructions
-If you are an existing Yext customer, you can install the Connectorse here <https://www.yext.com/s/me/apps/[REPLACEME]>
+If you are an existing Yext customer, you can install the Connectorse here <https://www.yext.com/s/me/apps/1002901>
 
-If you are currently using a Yext sandbox account, you can install the Connectors here <https://sandbox.yext.com/s/me/apps/[REPLACEME]>.
+If you are currently using a Yext sandbox account, you can install the Connectors here <https://sandbox.yext.com/s/me/apps/1004574>.
 
 If you are not an existing customer, but interested in learning more, try out a free trial here for a production account, or sign up for Hitchhikers and get started with a sandbox account, here <https://hitchhikers.yext.com/>.
 
