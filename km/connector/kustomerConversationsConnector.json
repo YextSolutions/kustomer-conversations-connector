@@ -5,34 +5,13 @@
   "entityType": "kustomer_kustomerConversations",
   "source": {
     "sourceConfig": {
-      "apiPullConfig": {
-        "requestType": "GET",
-        "url": "https://api.kustomerapp.com/v1/conversations",
-        "authentication": {
-          "apiKey": {
-            "key": "Authorization",
-            "value": "Bearer ${{apiKey}}",
-            "setAsHeader": true
+      "nativeSourceConfig": {
+        "source": "kustomer",
+        "operation": "fetchConversations",
+        "inputs": {
+          "apiKey": "${{apiKey}}"
           }
-        },
-        "paginationControl": {
-          "cursorPagination": {
-            "cursor": "links.next",
-            "cursorType": "RELATIVE_URL",
-            "detectCursorInHeader": false
-          }
-        },
-        "headers": {},
-        "queryParams": {
-          "Content-Type": "application/json"
-        },
-        "dataFormat": "JSON"
-      }
-    },
-    "baseSelector": {
-      "type": "JSON",
-      "header": "Entity Container",
-      "path": "data"
+        }
     },
     "selectors": [
       {
