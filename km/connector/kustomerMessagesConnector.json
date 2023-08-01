@@ -1,126 +1,146 @@
 {
-  "$id": "kustomer_kustomerMessagesConnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v3",
-  "displayName": "Kustomer Messages Connector",
-  "entityType": "kustomer_kustomerMessages",
-  "source": {
-    "sourceConfig": {
-      "nativeSourceConfig": {
-        "source": "kustomer",
-        "operation": "fetchMessages",
-        "inputs": {
-          "apiKey": "${{apiKey}}"
-          }
+    "$id": "kustomer_kustomerMessagesConnector",
+    "$schema": "https://schema.yext.com/config/km/connector/v4",
+    "displayName": "Kustomer Messages Connector",
+    "entityTypes": [
+        "kustomer_kustomerMessages"
+    ],
+    "source": {
+        "sourceConfig": {
+            "nativeSourceConfig": {
+                "source": "kustomer",
+                "operation": "fetchMessages",
+                "inputs": {
+                    "apiKey": "${{apiKey}}"
+                }
+            }
+        },
+        "selectors": [
+            {
+                "type": "JSON",
+                "header": "Entity ID",
+                "path": "id"
+            },
+            {
+                "type": "JSON",
+                "header": "Name",
+                "path": "attributes.preview"
+            },
+            {
+                "type": "JSON",
+                "header": "Conversation Subject",
+                "path": "attributes.meta.subject"
+            },
+            {
+                "type": "JSON",
+                "header": "Message Text",
+                "path": "attributes.preview"
+            },
+            {
+                "type": "JSON",
+                "header": "Message Channel",
+                "path": "attributes.channel"
+            },
+            {
+                "type": "JSON",
+                "header": "Message Sender Contact",
+                "path": "attributes.meta.from"
+            },
+            {
+                "type": "JSON",
+                "header": "Related Conversation",
+                "path": "relationships.conversation.data.id"
+            },
+            {
+                "type": "JSON",
+                "header": "Sent At",
+                "path": "attributes.sentAt"
+            }
+        ]
+    },
+    "transforms": [
+        {
+            "extractText": {
+                "inputHeader": "Sent At",
+                "newColumnHeader": "Sent At - Formatted",
+                "extractOperation": "ALL_TEXT_BEFORE",
+                "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+                "valueToFind": {
+                    "plainText": {
+                        "value": "T",
+                        "ignoreCase": false
+                    }
+                }
+            }
+        },
+        {
+            "convertToRichText": {
+                "inputHeaders": {
+                    "headers": [
+                        "Message Text"
+                    ]
+                },
+                "inputFormat": "HTML"
+            }
         }
-    },
-    "selectors": [
-      {
-        "type": "JSON",
-        "header": "Entity ID",
-        "path": "id"
-      },
-      {
-        "type": "JSON",
-        "header": "Name",
-        "path": "attributes.preview"
-      },
-      {
-        "type": "JSON",
-        "header": "Conversation Subject",
-        "path": "attributes.meta.subject"
-      },
-      {
-        "type": "JSON",
-        "header": "Message Text",
-        "path": "attributes.preview"
-      },
-      {
-        "type": "JSON",
-        "header": "Message Channel",
-        "path": "attributes.channel"
-      },
-      {
-        "type": "JSON",
-        "header": "Message Sender Contact",
-        "path": "attributes.meta.from"
-      },
-      {
-        "type": "JSON",
-        "header": "Related Conversation",
-        "path": "relationships.conversation.data.id"
-      },
-      {
-        "type": "JSON",
-        "header": "Sent At",
-        "path": "attributes.sentAt"
-      }
-    ]
-  },
-  "transforms": [
-    {
-      "extractText": {
-        "inputHeader": "Sent At",
-        "newColumnHeader": "Sent At - Formatted",
-        "extractOperation": "ALL_TEXT_BEFORE",
-        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
-        "valueToFind": {
-          "plainText": {
-            "value": "T",
-            "ignoreCase": false
-          }
+    ],
+    "mappings": [
+        {
+            "field": "entityId",
+            "header": "Entity ID",
+            "subfieldPath": []
+        },
+        {
+            "field": "kustomer_relatedConversation",
+            "header": "Related Conversation",
+            "subfieldPath": []
+        },
+        {
+            "field": "kustomer_sentAt",
+            "header": "Sent At - Formatted",
+            "subfieldPath": []
+        },
+        {
+            "field": "richTextDescriptionV2",
+            "header": "Message Text",
+            "subfieldPath": [
+                {
+                    "name": "json"
+                }
+            ]
+        },
+        {
+            "field": "kustomer_messageSenderContact",
+            "header": "Message Sender Contact",
+            "subfieldPath": []
+        },
+        {
+            "field": "kustomer_messageChannel",
+            "header": "Message Channel",
+            "subfieldPath": []
+        },
+        {
+            "field": "name",
+            "header": "Name",
+            "subfieldPath": []
+        },
+        {
+            "field": "kustomer_conversationSubject",
+            "header": "Conversation Subject",
+            "subfieldPath": []
         }
-      }
+    ],
+    "scheduleConfig": {
+        "customSchedule": {
+            "timeZone": "America/New_York",
+            "startDate": "2023-02-27",
+            "startTime": "00:00",
+            "frequencyType": "MONTHLY"
+        },
+        "runMode": "COMPREHENSIVE"
+    },
+    "comprehensiveModeConfig": {
+        "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+        "actionOnMissingEntities": "DELETE"
     }
-  ],
-  "mappings": [
-    {
-      "field": "entityId",
-      "header": "Entity ID",
-      "subfieldPath": []
-    },
-    {
-      "field": "kustomer_relatedConversation",
-      "header": "Related Conversation",
-      "subfieldPath": []
-    },
-    {
-      "field": "kustomer_sentAt",
-      "header": "Sent At - Formatted",
-      "subfieldPath": []
-    },
-    {
-      "field": "richTextDescription",
-      "header": "Message Text",
-      "subfieldPath": []
-    },
-    {
-      "field": "kustomer_messageSenderContact",
-      "header": "Message Sender Contact",
-      "subfieldPath": []
-    },
-    {
-      "field": "kustomer_messageChannel",
-      "header": "Message Channel",
-      "subfieldPath": []
-    },
-    {
-      "field": "name",
-      "header": "Name",
-      "subfieldPath": []
-    },
-    {
-      "field": "kustomer_conversationSubject",
-      "header": "Conversation Subject",
-      "subfieldPath": []
-    }
-  ],
-  "scheduleConfig": {
-    "customSchedule": {
-      "timeZone": "America/New_York",
-      "startDate": "2023-02-27",
-      "startTime": "00:00",
-      "frequencyType": "MONTHLY"
-    },
-    "runMode": "COMPREHENSIVE"
-  }
 }

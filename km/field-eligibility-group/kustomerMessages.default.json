@@ -1,15 +1,15 @@
 {
-  "$id": "kustomer_kustomerMessages.default",
-  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
-  "name": "Kustomer Messages-default",
-  "entityType": "kustomer_kustomerMessages",
-  "fields": [
-    "kustomer_conversationSubject",
-    "kustomer_messageChannel",
-    "kustomer_messageSenderContact",
-    "kustomer_relatedConversation",
-    "kustomer_sentAt",
-    "richTextDescription"
-  ],
-  "required": []
+    "$id": "kustomer_kustomerMessages.default",
+    "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+    "name": "Kustomer Messages-default",
+    "entityType": "kustomer_kustomerMessages",
+    "fields": [
+        "kustomer_conversationSubject",
+        "kustomer_messageChannel",
+        "kustomer_messageSenderContact",
+        "kustomer_relatedConversation",
+        "kustomer_sentAt",
+        "richTextDescriptionV2"
+    ],
+    "required": []
 }

@@ -1,90 +1,90 @@
 {
-  "$id": "kustomer_conversations",
-  "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
-  "entityType": "kustomer_kustomerConversations",
-  "displayName": "Conversations",
-  "presentationEntries": [
-    {
-      "displayName": "Content",
-      "entryType": "DIVIDER"
-    },
-    {
-      "displayName": "Core Information",
-      "entryType": "SECTION",
-      "fields": [
+    "$id": "kustomer_conversations",
+    "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
+    "entityType": "kustomer_kustomerConversations",
+    "displayName": "Conversations",
+    "presentationEntries": [
         {
-          "id": "name",
-          "visibleOnAdd": true
+            "displayName": "Content",
+            "entryType": "DIVIDER"
         },
         {
-          "id": "entityId",
-          "visibleOnAdd": true
+            "displayName": "Core Information",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "name",
+                    "visibleOnAdd": true
+                },
+                {
+                    "id": "entityId",
+                    "visibleOnAdd": true
+                },
+                {
+                    "id": "kustomer_customerEmail"
+                }
+            ]
         },
         {
-          "id": "kustomer_customerEmail"
+            "displayName": "Conversation Details",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "kustomer_conversationPriority"
+                },
+                {
+                    "id": "kustomer_conversationChannel"
+                },
+                {
+                    "id": "kustomer_conversationStatus"
+                },
+                {
+                    "id": "kustomer_messageCount"
+                },
+                {
+                    "id": "kustomer_noteCount"
+                },
+                {
+                    "id": "kustomer_satisfaction"
+                },
+                {
+                    "id": "kustomer_isClosed"
+                },
+                {
+                    "id": "brand"
+                },
+                {
+                    "id": "kustomer_customerName"
+                },
+                {
+                    "id": "landingPageUrl"
+                },
+                {
+                    "id": "kustomer_conversationCreatedDate"
+                },
+                {
+                    "id": "kustomer_conversationUpdatedDate"
+                },
+                {
+                    "id": "kustomer_lastActivityAt"
+                }
+            ]
+        },
+        {
+            "displayName": "Other",
+            "entryType": "DIVIDER"
+        },
+        {
+            "displayName": "Internal Use Only",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "folder"
+                },
+                {
+                    "id": "labels"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "displayName": "Conversation Details",
-      "entryType": "SECTION",
-      "fields": [
-        {
-          "id": "kustomer_conversationPriority"
-        },
-        {
-          "id": "kustomer_conversationChannel"
-        },
-        {
-          "id": "kustomer_conversationStatus"
-        },
-        {
-          "id": "kustomer_messageCount"
-        },
-        {
-          "id": "kustomer_noteCount"
-        },
-        {
-          "id": "kustomer_satisfaction"
-        },
-        {
-          "id": "kustomer_isClosed"
-        },
-        {
-          "id": "brand"
-        },
-        {
-          "id": "kustomer_customerName"
-        },
-        {
-          "id": "landingPageUrl"
-        },
-        {
-          "id": "kustomer_conversationCreatedDate"
-        },
-        {
-          "id": "kustomer_conversationUpdatedDate"
-        },
-        {
-          "id": "kustomer_lastActivityAt"
-        }
-      ]
-    },
-    {
-      "displayName": "Other",
-      "entryType": "DIVIDER"
-    },
-    {
-      "displayName": "Internal Use Only",
-      "entryType": "SECTION",
-      "fields": [
-        {
-          "id": "folder"
-        },
-        {
-          "id": "labels"
-        }
-      ]
-    }
-  ]
+    ]
 }
